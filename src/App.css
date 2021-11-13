@@ -1,0 +1,346 @@
+html {
+  height: 100%;
+}
+
+@font-face {
+  font-family: Parastoo;
+  src: url('./fonts/parastoo/web/Parastoo.eot');
+  src: url('./fonts/parastoo/web/Parastoo.eot?#iefix') format('embedded-opentype'),
+       url('./fonts/parastoo/web/Parastoo.woff2') format('woff2'),
+       url('./fonts/parastoo/web/Parastoo.woff') format('woff'),
+       url('./fonts/parastoo/web/Parastoo.ttf') format('truetype');
+  font-weight: normal;
+}
+
+
+body {
+  background: linear-gradient(rgb(20, 20, 20, 0.2), rgba(20, 20, 20, 0.4)),
+    url(./Background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: auto;
+  height: 100%;
+  margin: 0;
+  font-family: Parastoo;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font-size: 2rem;
+  font-family: Parastoo;
+  text-align: right;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  display: flex !important;
+}
+
+.main-container {
+  height: 95vh;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  /* background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.2)
+    ) !important; */
+  backdrop-filter: blur(1rem);
+  border-radius: 20px;
+  
+}
+#container-login {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2em;
+    height: 95vh;
+    width: 90%; 
+    background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.4)
+    ) !important;
+    backdrop-filter: blur(1rem) !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;    
+}
+
+:is(#signup-form, #signin-form) {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  :is(#signup-form, #signin-form) label {
+    margin-top: 1em;
+    font-weight: 600;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  :is(#signup-form, #signin-form) input {
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    border: 1px #986fbe solid;
+  }
+  
+  .signup-btn,
+  .signin-btn {
+    margin-top: 2em;
+    padding: 0.8em 2em;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(
+      to bottom right,
+      rgba(107, 103, 110, 0.7),
+      rgba(107, 103, 110, 0.4)
+    );
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  :is(.signup-btn, .signin-btn):hover {
+    background: linear-gradient(
+      to bottom right,
+      rgba(120, 110, 128, 0.7),
+      rgba(120, 110, 128, 0.4)
+    );
+  }
+  
+  .invalid-feedback {
+    color: #7a5b97;
+  }
+ 
+.content {
+  padding:0.5em 6em ;
+  height: 100%;
+  overflow: scroll;
+  padding: 1rem; 
+  
+  /* max-height: -webkit-fill-available; */
+}
+
+
+.line-section {
+  width: 100%; 
+  max-height: 90vh;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+.line {
+  display: flex;
+  /* width: 100%;   */
+  margin-left:  1em;
+  margin-right: 1em;
+  padding: 1rem; 
+}
+
+.container-factory{
+  flex: 100%;
+  margin-top: 2em;
+  margin-right: auto;
+  margin-left: auto;
+
+  padding: 0.5em 2em;
+  flex-direction: row;
+  /* background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.2)
+    ) !important; */
+  backdrop-filter: blur(3rem);
+  border-radius: 25px;
+  /* overflow-y: scroll; */
+  /* height: max-content; */
+}
+.container-lines{
+  flex: 100%;
+  margin-top: 1em;
+  /* margin-right: auto;
+  margin-left: auto; */
+
+  padding: 0.5em 2em;
+  flex-direction: row;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.2)
+    ) !important;
+  backdrop-filter: blur(3rem);
+  border-radius: 25px;
+  /* overflow-y: scroll; */
+  height: max-content;
+}
+
+.container-lines h6{
+  color: aliceblue;
+  margin-top: 0;
+}
+
+.sensor-icon{
+/* width: 8em; */
+height: auto;
+border-radius: 10px;
+margin: 0.5em 1em;
+margin-right: 2em;
+}
+.container-sensors{
+height: 100%;
+}
+
+.sensor{
+  display: inline;
+width: auto !important;
+display: flex;
+justify-content: center;
+/* padding: 0; */
+/* margin: 0.5em 2em; */
+
+border-radius: 15px;
+text-decoration: none;
+color: wheat;
+/* cursor: pointer; */
+}
+
+.sensor-icon-info{
+  /* display:10inline; */
+  /* width: 100%; */
+  display: flex;
+  justify-content: center;
+  /* padding: 0.5em;
+  margin: 0.5em 0.25em;
+  */
+ 
+  text-decoration: none;
+  color: black;
+}
+
+.live-data{
+  padding: 0.25em 1em;
+  background: #dad0c757;
+  border-radius: 10px;
+}
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+  .menu {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  body,
+  button,
+  input,
+  p,
+  h6,
+  textarea,
+  select{
+    font-size: 0.6rem !important;
+  }
+  #line {
+    flex-direction: column !important;
+   
+  }
+}
+@media only screen and (min-width: 700px) {
+  body,
+  button,
+  input,
+  p,
+  h6,
+  textarea,
+  select {
+    font-size: 0.9rem !important;
+  }
+  #line {
+    flex-direction: unset !important;
+   
+  }
+
+  #main-container, #container-login {
+    width: 50% !important;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  body,
+  button,
+  input,
+  p,
+  h6,
+  textarea,
+  select{
+    font-size: 1rem !important;
+  }
+  #line {
+    flex-direction: unset !important;
+    
+  }
+  
+}
+@media only screen and (min-width: 1024px) {
+  #container , #container-login{
+    height: 90vh !important;
+  }
+  #root{
+    height: 90vh !important;
+    width: 100% !important;
+  }
+}
+
+@media only screen and (min-width: 2000px){
+  body,
+  button,
+  input,
+  p,
+  h6,
+  textarea,
+  select{
+    font-size: 1.5rem !important;
+  }
+  
+}
+
+
+::-webkit-scrollbar {
+  width: 0px !important;
+  height: 5px !important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey !important; 
+  border-radius: 10px !important;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(70, 66, 66) !important; 
+  border-radius: 10px !important;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background:rgb(124, 11, 11) !important; 
+}
+::-webkit-scrollbar-thumb:focus {
+  background:rgb(124, 11, 11) !important; 
+}

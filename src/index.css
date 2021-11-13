@@ -1,0 +1,71 @@
+/* @import "custom.scss";  */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Parastoo;
+ 
+}
+
+.texts{
+  white-space: pre-wrap;
+}
+
+@font-face {
+  font-family: Parastoo;
+  src: url('./fonts/parastoo/web/Parastoo.eot');
+  src: url('./fonts/parastoo/web/Parastoo.eot?#iefix') format('embedded-opentype'),
+       url('./fonts/parastoo/web/Parastoo.woff2') format('woff2'),
+       url('./fonts/parastoo/web/Parastoo.woff') format('woff'),
+       url('./fonts/parastoo/web/Parastoo.ttf') format('truetype');
+  font-weight: normal;
+}
+
+.line-chart{
+  width: auto;
+  height: 100%;
+  overflow-x: scroll;
+}
+
+.container-dates{
+  flex: 100%;
+  margin-top: 2em;
+  margin-right: auto;
+  margin-left: 1em;
+
+  padding: 0.5em 2em;
+  flex-direction: row;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.4)
+    ) !important;
+  backdrop-filter: blur(3rem);
+  border-radius: 25px;
+  /* overflow-y: scroll; */
+  height: max-content;
+  
+}
+.date-filter{
+  display: inline-flex;
+  float: left;
+  align-items: center;
+  border-radius: 100px;
+  background-color: white;
+  /*  margin: auto; */
+  /* font-weight: bold; */
+  height: 4em;
+  width: 4em;
+  border: none;
+  /* position: absolute; */
+  left: 3em;
+}
+
+.date-picker{
+
+}
