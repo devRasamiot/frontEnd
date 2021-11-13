@@ -55,41 +55,36 @@ export default function CeramicSubLine(props){
                 {sensors.map( (sensor, i) => 
                  <Col key={i}>
                  <span>
-                     <div>
-                     
-                     {type.map((type, j) =>
-                        <div key={j} className="sensor-icon-info">
-                            {console.log(sensor.type , type.id)}
-                            {sensor.type === type.id?
-                                <img
-                                    src={type.icon}
-                                    alt="sensor-icon"
-                                    className="sensor-icon"
-                                />:
-                                ""
-                            }
-                        </div>
-                     )}
-                    <Row>  
-                        <Col md={12}className="sensor-icon-info">   
-                        <span className="live-data">           
-                        {sensor.live_data}
-                        </span>
+                    <Row className="sensor-icon-info" >
+                        <Col md={6} className="sensor-name text-black">
+                            {sensor.name} 
+                        </Col> 
+                        <Col md={6}>
+                            {type.map((type, j) =>
+                                // <div key={j} >
+                                    // console.log(sensor.type , type.id)
+                                    sensor.type === type.id?
+                                        <img
+                                            src={type.icon}
+                                            alt="sensor-icon"
+                                            className="sensor-icon"
+                                        />:
+                                        ""
+                                    
+                                // </div>
+                            )}
                         </Col>
+                         
                     </Row>
-                    <Row>
-                        <Col md={12} className="sensor text-primary">
-                        {sensor.name} 
-                        </Col>  
-                    </Row>     
-                    <Row>
-                        <Col md={12}>
-                        {/* {sensor.mac_addr} */}
-                        </Col>
-                    </Row>
-
+                        <Row>  
+                            <Col md={12}className="live-data">   
+                                <span className="live-data">           
+                                    {sensor.live_data}
+                                </span>
+                            </Col>
+                        </Row>
                     
-                    </div>
+                    
                 
 
                  </span>

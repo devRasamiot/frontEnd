@@ -58,7 +58,7 @@ main {
     rgba(255, 255, 255, 0.2)
     ) !important; */
   backdrop-filter: blur(1rem);
-  border-radius: 20px;
+  border-radius: 35px;
   
 }
 #container-login {
@@ -196,14 +196,14 @@ main {
 /* width: 8em; */
 height: auto;
 border-radius: 10px;
-margin: 0.5em 1em;
-margin-right: 2em;
+/* margin: 0.5em 1em;
+margin-right: 2em; */
 }
 .container-sensors{
 height: 100%;
 }
 
-.sensor{
+.sensor-name{
   display: inline;
 width: auto !important;
 display: flex;
@@ -218,22 +218,28 @@ color: wheat;
 }
 
 .sensor-icon-info{
-  /* display:10inline; */
-  /* width: 100%; */
+  /* display:inline; */
+  width: 100%;
+  height: 50%;
   display: flex;
   justify-content: center;
   /* padding: 0.5em;
   margin: 0.5em 0.25em;
   */
+  margin: 0.5em;
  
   text-decoration: none;
   color: black;
 }
 
 .live-data{
-  padding: 0.25em 1em;
-  background: #dad0c757;
-  border-radius: 10px;
+  padding: 0.5em 1em;
+  font-weight: bold;
+  width: 100%;
+  font-size: x-large;
+  height: 40%;
+  /* background: #dad0c757;
+  border-radius: 10px; */
 }
 
 
