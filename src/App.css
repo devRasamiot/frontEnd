@@ -52,11 +52,11 @@ main {
   margin-right: auto;
   padding-left: 0px !important;
   padding-right: 0px !important;
-  /* background: linear-gradient(
+  background: linear-gradient(
     to right bottom,
-    rgba(255, 255, 255, 0.1),
-    rgba(255, 255, 255, 0.2)
-    ) !important; */
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.4)
+    ) !important;
   backdrop-filter: blur(1rem);
   border-radius: 35px;
   
@@ -147,7 +147,7 @@ main {
   /* width: 100%;   */
   margin-left:  1em;
   margin-right: 1em;
-  padding: 1rem; 
+  /* padding: 1rem;  */
 }
 
 .container-factory{
@@ -158,13 +158,9 @@ main {
 
   padding: 0.5em 2em;
   flex-direction: row;
-  /* background: linear-gradient(
-    to right bottom,
-    rgba(255, 255, 255, 0.1),
-    rgba(255, 255, 255, 0.2)
-    ) !important; */
-  backdrop-filter: blur(3rem);
-  border-radius: 25px;
+  
+  backdrop-filter: blur(0rem);
+  /* border-radius: 25px; */
   /* overflow-y: scroll; */
   /* height: max-content; */
 }
@@ -174,12 +170,12 @@ main {
   /* margin-right: auto;
   margin-left: auto; */
 
-  padding: 0.5em 2em;
+  padding: 0.2em 2em;
   flex-direction: row;
   background: linear-gradient(
     to right bottom,
-    rgba(255, 255, 255, 0.1),
-    rgba(255, 255, 255, 0.2)
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.4)
     ) !important;
   backdrop-filter: blur(3rem);
   border-radius: 25px;
@@ -187,10 +183,10 @@ main {
   height: max-content;
 }
 
-.container-lines h6{
-  color: aliceblue;
-  margin-top: 0;
-}
+/* .container-lines h6{
+  /* color: aliceblue; */
+  /* margin-top: 0; */
+/* } */ 
 
 .sensor-icon{
 /* width: 8em; */
@@ -201,6 +197,7 @@ margin-right: 2em; */
 }
 .container-sensors{
 height: 100%;
+padding: 1em;
 }
 
 .sensor-name{
@@ -223,6 +220,7 @@ color: wheat;
   height: 50%;
   display: flex;
   justify-content: center;
+  flex-direction: row-reverse;
   /* padding: 0.5em;
   margin: 0.5em 0.25em;
   */
@@ -313,14 +311,9 @@ color: wheat;
 }
 
 @media only screen and (min-width: 2000px){
-  body,
-  button,
-  input,
-  p,
-  h6,
-  textarea,
-  select{
-    font-size: 1.5rem !important;
+  body
+  {
+    font-size: 2.2rem !important;
   }
   
 }

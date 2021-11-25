@@ -34,18 +34,18 @@ export default function CeramicLine(props){
 
     
     return(
-        <section className="container-sensors">            
+        <section >            
             {/* {loading? <Spinner animation="border" variant="primary" />: */}
                 <Row className="line">
                 {sublines.map( (line, i) => 
                  <Row className="container-lines align-content-center" key={i}>
-                    <Row>
-                        <h6>
+                    <Row className="py-0 my-0">
+                        <h6 className="text-black py-3 px-2">
                         {line.name}
                         </h6>
                     </Row>                            
                     
-                    <Row>
+                    <Row className="py-0 my-0">
                         <Col >
                             <CeramicSubLine pLine={line.id}></CeramicSubLine>
                         </Col>

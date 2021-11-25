@@ -49,17 +49,15 @@ export default function CeramicSubLine(props){
     },[setType]);
 
     return(
-        <section className="container-sensors">            
+        <section >            
             
-                <Row>
+                <Row className="container-sensors">
                 {sensors.map( (sensor, i) => 
-                 <Col key={i}>
+                 <Col lg={2} md={3} sm={6} xs={12} key={i}>
                  <span>
                     <Row className="sensor-icon-info" >
-                        <Col md={6} className="sensor-name text-black">
-                            {sensor.name} 
-                        </Col> 
-                        <Col md={6}>
+                        
+                        <Col md={4} sm={6} xs={12}>
                             {type.map((type, j) =>
                                 // <div key={j} >
                                     // console.log(sensor.type , type.id)
@@ -74,7 +72,9 @@ export default function CeramicSubLine(props){
                                 // </div>
                             )}
                         </Col>
-                         
+                        <Col md={8} sm={6} xs={12} className="sensor-name px-0 text-black">
+                            {sensor.name} 
+                        </Col> 
                     </Row>
                         <Row>  
                             <Col md={12}className="live-data">   

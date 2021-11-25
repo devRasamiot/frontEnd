@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { Redirect, useHistory } from "react-router";
-import logoutFunc from "../Utils/userFunc";
+import {logoutFunc} from "../Utils/userFunc";
 import axiosInstance from "../Utils/axios";
 import DateTime from "./dateTime";
 import Row from "react-bootstrap/esm/Row";
@@ -69,11 +69,13 @@ export default function SideBar(props){
   let dashboardRedirect =()=>{
     // return <Redirect to='/dashboard'/>;
     history.push('/dashboard')
+    window.location.reload();
   }
 
   let reportRedirect =()=>{
     // return <Redirect to='/reports'/>;
     history.push('/reports')
+    window.location.reload();
   }
     
     return(

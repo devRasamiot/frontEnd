@@ -1,12 +1,16 @@
-import React, {useState} from "react";
+import React, {useState, Route} from "react";
+import {useHistory } from "react-router";
 import axios from 'axios'
 // import 'font-awesome/css/font-awesome.min.css';
 import Spinner from 'react-bootstrap/Spinner'
 import Button from 'react-bootstrap/Button'
 import { Link, Redirect } from 'react-router-dom';
-import { setUserSession, loginFunc} from '../Utils/userFunc';
+import { setUserSession} from '../Utils/userFunc';
+import {loginFunc} from '../Utils/userFunc';
+import {getUser} from '../Utils/userFunc';
 import axiosInstance from '../Utils/axios'
 import getApi from "../Utils/api";
+import Dashboard from "../dashboard/dashboard.js";
 
 
 
@@ -15,11 +19,12 @@ export default function LoginForm(props){
     userName : "",
     password : "",
 });
+let history = useHistory();
 const [error, setError] = useState(null);
 const [isLoading, setIsLoading] = useState(false);
 const [isError, setIsError] = useState(false);
 const [errorShow, setErrorShow] = useState(false);
-const [redirect, setRedirect] = useState(false);
+const [redirect, setRedirect] = useState(getUser());
 const [labelShowU, setLableShowU] = useState(false);
 const [labelShowP, setLableShowP] = useState(false);
 let errors = [];
@@ -68,7 +73,7 @@ let handleSubmit = (event)=>{
       console.log(res.data)
       loginFunc(res.data)
       setIsLoading(false);
-      setRedirect(true);
+      setRedirect(getUser());
       // console.log(localStorage.getItem('access_token'),"and the refresh:",localStorage.getItem('refresh_token'))
         
     })
@@ -97,9 +102,10 @@ let handleSubmit = (event)=>{
 }
 
 
-if(redirect) return <Redirect to='/dashboard'/>;
-return(
-  <main>
+if(redirect) return <Redirect to="/dashboard"/>;
+else
+  return(
+    <main>
         {/* <section id="container"> */}
           <section id="container-login" >          
             <h5>ورود به حساب کاربری</h5>
