@@ -12,6 +12,13 @@ html {
   font-weight: normal;
 }
 
+@font-face {
+  font-family: Gandom;
+  src: url('./fonts/gandom/Gandom-FD.eot');
+  src: url('./fonts/gandom/Gandom-FD.woff') format('woff'),
+       url('./fonts/gandom/Gandom-FD.ttf') format('truetype');
+}
+
 
 body {
   background: linear-gradient(rgb(20, 20, 20, 0.2), rgba(20, 20, 20, 0.4)),
@@ -21,7 +28,7 @@ body {
   width: auto;
   height: 100%;
   margin: 0;
-  font-family: Parastoo;
+  font-family: Gandom;
 }
 
 body,
@@ -30,7 +37,7 @@ input,
 textarea,
 select {
   font-size: 2rem;
-  font-family: Parastoo;
+  font-family: Gandom;
   text-align: right;
 }
 

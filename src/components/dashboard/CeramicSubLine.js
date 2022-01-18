@@ -59,7 +59,7 @@ export default function CeramicSubLine(props){
                      
                      {type.map((type, j) =>
                         <div key={j} className="sensor-icon-info">
-                            {console.log(sensor.type , type.id)}
+                            {/* {console.log(sensor.type , type.id)} */}
                             {sensor.type === type.id?
                                 <img
                                     src={type.icon}

@@ -112,24 +112,10 @@
 }
 
 .options .selected {
-  color: white;
-  font-size: 2.5em;
-  float: left;
-  width: 80%;
-  /* margin: auto;
-  margin-top: 0.5em;
-  margin-left: auto;
-  margin-right: 0.5rem; */
-  border-radius: 0px 20px 20px 0px;
-  /* cursor: pointer; */
-  /* text-decoration: none; */
-  padding:0.2em 0em 0.2em 0.65em;
-  /* padding-right: 0.3em ; */
-  /* padding-left: 0.6em; */
+  color: #fff;
   background: rgb(63, 193, 201);
-  
-  /* clip-path: polygon(0% 100%, 90% 100%, 100% 50%, 90% 0, 0% 0%); */
-  /* clip-path: polygon(0% 0%, 90% 0, 100% 50%, 90% 100%, 0% 100%); */
+  padding: .5rem 0;
+  border-radius: 0 2em 2em 0;
 }
 
 

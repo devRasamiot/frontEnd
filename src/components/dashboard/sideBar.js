@@ -37,13 +37,10 @@ export default function SideBar(props){
   // },[setProfile])
 
   
-  console.log("historyyyy:",history.location.pathname)
-
   const [content, setContent]=useState("1");
 
   useEffect(() => {
     if (history.location.pathname ==="/dashboard"){
-        console.log("here is dashboard")
         setContent("1")
     }
     else if (history.location.pathname ==="/reports"){
@@ -80,15 +77,8 @@ export default function SideBar(props){
         
                    
         <div className="menuContainer">            
-            <Row className="searchBar">                
-                    <FontAwesomeIcon icon={faSearch}  className="searchIcon" />                
-            </Row>
             <Row className="options">
                 <div>
-                <Row className="option">
-                    <FontAwesomeIcon icon={faTv}  className="iconOptions" />
-                </Row>
-
                 <Row className={content=="1"? "option selected": "option"}>
                     <FontAwesomeIcon icon={faHome} onClick={dashboardRedirect}  className="iconOptions" />
                 </Row>
@@ -96,16 +86,11 @@ export default function SideBar(props){
                 <Row className={content=="2"? "option selected": "option"}>
                     <FontAwesomeIcon icon={faChartBar} onClick={reportRedirect}  className="iconOptions" />
                 </Row>
-
-                <Row className="option ">
-                    <FontAwesomeIcon icon={faBell}  className="iconOptions " />
-                </Row>
                 </div>
 
             </Row>
             <Row className="setting">
               <Row className="iconSet">
-                {/* <FontAwesomeIcon icon={faCog}  className="iconSetting" />  */}
                 <FontAwesomeIcon icon={faPowerOff} onClick={logoutRedirect}  className="iconSetting" />              
               </Row>
             </Row>
