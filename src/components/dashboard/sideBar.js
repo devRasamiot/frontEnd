@@ -10,6 +10,8 @@ import { Route } from "react-router";
 import getApi from "../Utils/api"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faTv, faHome, faChartLine, faChartBar, faBell, faCog, faPowerOff } from "@fortawesome/free-solid-svg-icons";
+import display from '../../pics/icons/display.png';
+import barChart from '../../pics/icons/bar-chart.png';
 
 
 export default function SideBar(props){
@@ -80,11 +82,13 @@ export default function SideBar(props){
             <Row className="options">
                 <div>
                 <Row className={content=="1"? "option selected": "option"}>
-                    <FontAwesomeIcon icon={faHome} onClick={dashboardRedirect}  className="iconOptions" />
+                    {/* <FontAwesomeIcon icon={faHome} onClick={dashboardRedirect}  className="iconOptions" /> */}
+                    <Image className="iconOptions" src={display} onClick={dashboardRedirect}></Image>
                 </Row>
 
                 <Row className={content=="2"? "option selected": "option"}>
-                    <FontAwesomeIcon icon={faChartBar} onClick={reportRedirect}  className="iconOptions" />
+                    {/* <FontAwesomeIcon icon={faChartBar} onClick={reportRedirect}  className="iconOptions" /> */}
+                    <Image className="iconOptions" src={barChart} onClick={reportRedirect}></Image>
                 </Row>
                 </div>
 

@@ -27,7 +27,7 @@ export default function Dashboard(props){
             </Col>
             
             <Col className="content"> 
-            {console.log("factories", factories,"len",factories.length,"check",factories.length>=1)}
+            {/* {console.log("factories", factories,"len",factories.length,"check",factories.length>=1)} */}
                 {factories? 
                     factories.map( (fact, i) => 
                         <Row className="container-factory" key={i}>                            
