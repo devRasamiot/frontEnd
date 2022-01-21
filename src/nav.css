@@ -77,6 +77,48 @@
   border-radius: 0 2em 2em 0;
 }
 
+/* mobile nav  */
+.mobile-nav-container {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 0 .5rem;
+}
+
+.nav-item-group {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.nav-item {
+  margin-inline-end: 2rem;
+  align-self: baseline;
+}
+
+.selected-item {
+  color: #fff;
+  background: rgb(63, 193, 201);
+  padding: 1rem 0.5rem;
+  margin-bottom: 7px;
+  border-radius: 0 0 1.5em 1.5em;
+}
+
+.nav-item-icon {
+  height: 35px;
+  width: 40px;
+  cursor: pointer;
+}
+
+.nav-logout {
+  margin-inline-start: auto;
+}
+
+.setting-icon {
+  color: #fff;
+  font-size: 2.5rem;
+  vertical-align: middle;
+}
 
 .setting{
   display: flex;

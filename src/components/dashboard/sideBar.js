@@ -14,7 +14,7 @@ import display from '../../pics/icons/display.png';
 import barChart from '../../pics/icons/bar-chart.png';
 
 
-export default function SideBar(props){
+export default function SideBar({ mode }){
   let history = useHistory();
   const [profile, setProfile] = useState([]);
   const [loading, setIsLoading] = useState(false);
@@ -76,18 +76,15 @@ export default function SideBar(props){
   }
     
     return(
-        
-                   
-        <div className="menuContainer">            
+        <>
+          {mode === 'desktop' ? <div className="menuContainer">            
             <Row className="options">
                 <div>
                 <Row className={content=="1"? "option selected": "option"}>
-                    {/* <FontAwesomeIcon icon={faHome} onClick={dashboardRedirect}  className="iconOptions" /> */}
                     <Image className="iconOptions" src={display} onClick={dashboardRedirect}></Image>
                 </Row>
 
                 <Row className={content=="2"? "option selected": "option"}>
-                    {/* <FontAwesomeIcon icon={faChartBar} onClick={reportRedirect}  className="iconOptions" /> */}
                     <Image className="iconOptions" src={barChart} onClick={reportRedirect}></Image>
                 </Row>
                 </div>
@@ -99,15 +96,24 @@ export default function SideBar(props){
               </Row>
             </Row>
             
-        </div>
-
-
-
-
-
-
-
-        
+        </div> : <div className="mobile-nav-container">
+          <div className="nav-item-group">
+            <div className={content=="1"? "nav-item selected-item": "nav-item"}>
+            <Image className="nav-item-icon" src={display} onClick={dashboardRedirect}></Image>
+            </div>
+            <div className={content=="2"? "nav-item selected-item": "nav-item"}>
+            <Image className="nav-item-icon" src={barChart} onClick={reportRedirect}></Image>
+            </div>
+            <div className="nav-item">
+            <FontAwesomeIcon icon={faPowerOff} onClick={logoutRedirect}  className="setting-icon" />
+            </div>
+          </div>
+          {/* <div className="nav-logout">
+          <FontAwesomeIcon icon={faPowerOff} onClick={logoutRedirect}  className="setting-icon" />
+          </div> */}
+          </div>}
+        </>
+                   
     );
     
 }

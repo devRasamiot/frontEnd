@@ -21,32 +21,25 @@ export default function Dashboard(props){
 
     return(
         <main className="container-fluid">
-        <Row className="main-container">
-            <Col  lg={1} md={2} className="menu bg-navBg">
-                    <SideBar></SideBar>
-            </Col>
-            
-            <Col className="content"> 
-            {/* {console.log("factories", factories,"len",factories.length,"check",factories.length>=1)} */}
+            <div className="dashboard-card">
+            <div className="sidebar">
+                    <SideBar mode="desktop" />
+                </div>
+                <div className="mobile-navbar">
+                    <SideBar mode="mobile" />
+                    </div>
+                <div className="dashboard-content">
                 {factories? 
                     factories.map( (fact, i) => 
                         <Row className="container-factory" key={i}>                            
-                                {/* <Row >
-                                    <h6>
-                                    {fact.name}
-                                    </h6>
-                                </Row>   
-                                <Row>
-                                    <Col>           */}
+
                                     {fact.name}
                                         <Content factId={fact.id}></Content>
-                                    {/* </Col>
-                                </Row>                             */}
                         </Row>
                     )
                     :<></>}
-            </Col>
-        </Row>
+                </div>
+            </div>
         </main>
     );
     
