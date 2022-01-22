@@ -25,21 +25,24 @@ export default function Dashboard(props){
             <div className="sidebar">
                     <SideBar mode="desktop" />
                 </div>
-                <div className="mobile-navbar">
+                {/* <div className="mobile-navbar">
                     <SideBar mode="mobile" />
-                    </div>
+                    </div> */}
                 <div className="dashboard-content">
                 {factories? 
                     factories.map( (fact, i) => 
                         <Row className="container-factory" key={i}>                            
 
-                                    {fact.name}
+                                    <span style={{color: '#fff', fontSize: '16px'}}>{fact.name}</span>
                                         <Content factId={fact.id}></Content>
                         </Row>
                     )
                     :<></>}
                 </div>
             </div>
+            <div className="mobile-navbar">
+                    <SideBar mode="mobile" />
+                    </div>
         </main>
     );
     

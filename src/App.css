@@ -22,7 +22,7 @@ html {
 
 body {
   background: linear-gradient(rgb(20, 20, 20, 0.2), rgba(20, 20, 20, 0.4)),
-    url(./Background.jpg);
+    url(./yazdbaf.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   width: auto;
@@ -89,19 +89,6 @@ main {
   width: 100%;
 }
 
-@media only screen and (max-width: 768px) {
-  .dashboard-card {
-    flex-flow: column-reverse;
-  }
-
-  .sidebar {
-    display: none;
-  }
-
-  .mobile-navbar {
-    display: block;
-  }
-}
 #container-login {
     display: flex !important;
     flex-direction: column;
@@ -326,6 +313,23 @@ color: wheat;
 
   .container-sensors, .container-lines, .line {
     width: 100%;
+  }
+
+  .mobile-navbar {
+    display: block;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(54, 79, 107, 0.902), rgb(18, 30, 38) 70%);
+
+  }
+
+  .dashboard-card {
+    flex-flow: column-reverse;
+  }
+
+  .sidebar {
+    display: none;
   }
 }
 
