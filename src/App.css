@@ -185,7 +185,6 @@ main {
 }
 .line {
   display: flex;
-  /* width: 100%;   */
   margin-left:  1em;
   margin-right: 1em;
   padding: 1rem; 
@@ -196,7 +195,7 @@ main {
   margin-top: 2em;
   margin-right: auto;
   margin-left: auto;
-
+  /* font-size: 1rem; */
   padding: 0.5em 2em;
   flex-direction: row;
   /* background: linear-gradient(
@@ -216,7 +215,7 @@ main {
   margin-left: auto; */
 
   padding: 0.5em 2em;
-  flex-direction: row;
+  flex-direction: column;
   background: linear-gradient(
     to right bottom,
     rgba(255, 255, 255, 0.1),
@@ -233,15 +232,14 @@ main {
   margin-top: 0;
 }
 
-.sensor-icon{
-/* width: 8em; */
-height: auto;
-border-radius: 10px;
-margin: 0.5em 1em;
-margin-right: 2em;
+.container-lines h5 {
+  color: aliceblue;
 }
+
 .container-sensors{
 height: 100%;
+display: flex;
+align-items: center;
 }
 
 .sensor{
@@ -277,13 +275,57 @@ color: wheat;
   border-radius: 10px;
 }
 
+.sensor-icon{
+  /* width: 8em; */
+  height: auto;
+  border-radius: 10px;
+  margin: 0.5em 1em;
+  }
 
+/* sensor new styles */
+.sensors-box {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+.sensor-info {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+
+.sensor-live-data {
+  font-size: 20px;
+  font-weight: 600;
+}
 
 
 
 @media only screen and (max-width: 768px) {
   .menu {
     display: none !important;
+  }
+
+  .container-sensors {
+    flex-flow: column;
+  }
+
+  .sensors-box {
+    flex-flow: row;
+    margin-bottom: 1.25rem;
+  }
+  .sensor-info {
+    flex-flow: column-reverse;
+    font-size: 14px;
+  }
+
+  .full-width-row {
+    width: 100%;
+  }
+
+  .container-sensors, .container-lines, .line {
+    width: 100%;
   }
 }
 

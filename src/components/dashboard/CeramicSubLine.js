@@ -49,57 +49,32 @@ export default function CeramicSubLine(props){
     },[setType]);
 
     return(
-        <section className="container-sensors">            
-            
-                <Row>
-                {sensors.map( (sensor, i) => 
-                 <Col key={i}>
-                 <span>
-                     <div>
-                     
-                     {type.map((type, j) =>
-                        <div key={j} className="sensor-icon-info">
-                            {/* {console.log(sensor.type , type.id)} */}
-                            {sensor.type === type.id?
-                                <img
-                                    src={type.icon}
-                                    alt="sensor-icon"
-                                    className="sensor-icon"
-                                />:
-                                ""
-                            }
-                        </div>
-                     )}
-                    <Row>  
-                        <Col md={12}className="sensor-icon-info">   
-                        <span className="live-data">           
-                        {sensor.live_data}
-                        </span>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col md={12} className="sensor text-primary">
-                        {sensor.name} 
-                        </Col>  
-                    </Row>     
-                    <Row>
-                        <Col md={12}>
-                        {/* {sensor.mac_addr} */}
-                        </Col>
-                    </Row>
-
-                    
-                    </div>
-                
-
-                 </span>
-                 </Col>
-                
-                )}
-                </Row>
-            
-
-            
+        <section className="container-sensors"> 
+        {sensors.map((sensor, i) =>
+            <div className="sensors-box">
+            <div className="sensor-info">
+            <div className="sensor-icon-box">
+                <span className="sensor-info">
+                    {sensor.name}
+                </span>
+            </div>
+            <div>
+            {type.map((type, j) => 
+                <div key={j} className="sensor-icon-box">
+                    {sensor.type === type.id ? 
+                    <img src={type.icon} 
+                    alt="sensor-icon" 
+                    className="sensor-icon" /> : ''}
+                </div>)}
+            </div>
+            </div>
+            <div className="sensor-icon-box">
+                <span className="sensor-live-data">
+                    {sensor.live_data}
+                </span>
+            </div>
+            </div>
+        )}           
         </section>
     );
 

@@ -70,18 +70,18 @@ export default function Content(props){
     }
 
     let dashboarPage =
-        <Row>
+        <Row className="full-width-row">
             <section className="line-section">
                 <Row className="line">
                     {
                         productLine.map( (line, i) => 
                         <Row className="container-lines align-content-center" key={i}>                            
-                                <Row>
-                                    <h6>
+                                <Row className="full-width-row">
+                                    <h5>
                                     {line.name}
-                                    </h6>
+                                    </h5>
                                 </Row>   
-                                <Row>
+                                <Row className="full-width-row">
                                     <Col>
                                         <CeramicLine pLine={line.id}></CeramicLine>
                                     </Col>
