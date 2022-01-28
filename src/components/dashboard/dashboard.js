@@ -32,7 +32,6 @@ export default function Dashboard(props){
                 {factories? 
                     factories.map( (fact, i) => 
                         <Row className="container-factory" key={i}>                            
-
                                     <span style={{color: '#fff', fontSize: '16px'}}>{fact.name}</span>
                                         <Content factId={fact.id}></Content>
                         </Row>

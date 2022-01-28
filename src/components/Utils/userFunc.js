@@ -17,15 +17,15 @@ export const loginFunc = (res) =>{
 }
 
 export default function logoutFunc (){
-  console.log("Im in log out");
+  // console.log("Im in log out");
   const ref = localStorage.getItem('refresh_token');
-  console.log(ref)
+  // console.log(ref)
   const response = axios.post(`${url}user/logout/blacklist/`, 
   {
     refresh_token: ref
   })
 
-  console.log("blacklist:", response)
+  // console.log("blacklist:", response)
   localStorage.removeItem('access_token');
   localStorage.removeItem('refresh_token');
   localStorage.removeItem('loggedIn');

@@ -46,7 +46,7 @@ let handleSubmit = (event)=>{
   const urls = getApi()
   const baseURL = urls[0]
     event.preventDefault();
-    console.log("error", error );
+    // console.log("error", error );
   // console.log(input.userName , input.password);
   if(validate()){
     setIsLoading(true);
@@ -65,7 +65,7 @@ let handleSubmit = (event)=>{
       // localStorage.setItem('refresh_token', res.refresh);
       // axiosInstance.defaults.headers['Authorization'] =
   	  //   'JWT ' + localStorage.getItem('access_token');
-      console.log(res.data)
+      // console.log(res.data)
       loginFunc(res.data)
       setIsLoading(false);
       setRedirect(true);
@@ -81,14 +81,14 @@ let handleSubmit = (event)=>{
         setError(errors)
         setIsError(true)
         setIsLoading(false);
-        console.log(error)
+        // console.log(error)
       }
       else{
         errors += "مشکلی در سامانه پیش آمده"
         setError(errors)
         setIsLoading(false);
         setIsError(true)
-        console.log(errors)
+        // console.log(errors)
 
       }
     });
@@ -119,7 +119,7 @@ return(
                               type="text" 
                               // required 
                               className="form-control text-center  "
-                              placeholder="شماره تلفن"
+                              placeholder="نام کاربری"
                               onChange={(e) => {setInput({...input, userName : e.target.value})}}
                               
                           />

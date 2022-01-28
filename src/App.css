@@ -64,6 +64,7 @@ main {
   padding-right: 0px !important;
   backdrop-filter: blur(1rem);
   border-radius: 20px;
+  overflow-y: auto;
 }
 
 .sidebar {
@@ -318,7 +319,7 @@ color: wheat;
   .mobile-navbar {
     display: block;
     width: 100%;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     background: linear-gradient(45deg, rgba(54, 79, 107, 0.902), rgb(18, 30, 38) 70%);
 
@@ -326,6 +327,7 @@ color: wheat;
 
   .dashboard-card {
     flex-flow: column-reverse;
+    padding-bottom: 3rem;
   }
 
   .sidebar {
