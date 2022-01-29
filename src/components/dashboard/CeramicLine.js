@@ -39,13 +39,14 @@ export default function CeramicLine(props){
                 <Row className="line">
                 {sublines.map( (line, i) => 
                  <Row className="container-lines align-content-center" key={i}>
-                    <Row className="py-0 my-0">
-                        <h6 className="text-black py-3 px-2">
+                    <Row className="full-width-row">
+                        <h5 style={{marginBottom: '.5rem'}}>
+
                         {line.name}
-                        </h6>
+                        </h5>
                     </Row>                            
                     
-                    <Row className="py-0 my-0">
+                    <Row className="full-width-row">
                         <Col >
                             <CeramicSubLine pLine={line.id}></CeramicSubLine>
                         </Col>

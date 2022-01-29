@@ -18,7 +18,7 @@ import { faSearch} from "@fortawesome/free-solid-svg-icons";
 
 export default function Content(props){
     const fact_id = props ? props.factId: null
-    console.log(fact_id)
+    // console.log(fact_id)
     const [productLine, setProductLine] = useState([]);
     const [loading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -43,9 +43,9 @@ export default function Content(props){
     // }
 
     useEffect(()=>{
-        console.log(fact_id,"fact_id")
+        // console.log(fact_id,"fact_id")
         setIsLoading(true);
-        console.log("here is factoryline api")
+        // console.log("here is factoryline api")
         axiosInstance
         .get(`factoryline/factory/${fact_id}/`,{
         }
@@ -62,11 +62,11 @@ export default function Content(props){
     },[setProductLine,fact_id])
     
     let history = useHistory();
-    console.log(history.location);
+    // console.log(history.location);
     const [content, setContent]=useState("1");
     useEffect(() => {
         if (history.location.pathname ==="/dashboard"){
-            console.log("here is dashboard")
+            // console.log("here is dashboard")
             setContent("1")
         }
         else if (history.location.pathname ==="/reports"){
@@ -100,18 +100,19 @@ export default function Content(props){
     }
 
     let dashboarPage =
-        <Row>
+        <Row className="full-width-row">
             <section className="line-section">
                 <Row className="line">
                     {
                         productLine.map( (line, i) => 
                         <Row className="container-lines align-content-center" key={i}>                            
-                                <Row>
-                                    <h6 className="text-black py-3 px-2">
+                                <Row className="full-width-row">
+                                    <h5>
+
                                     {line.name}
-                                    </h6>
+                                    </h5>
                                 </Row>   
-                                <Row>
+                                <Row className="full-width-row">
                                     <Col>
                                         <CeramicLine pLine={line.id}></CeramicLine>
                                     </Col>
@@ -158,8 +159,6 @@ export default function Content(props){
 
     return(
       <>
-      
-        {console.log("here is content")}
         {content==="1"? 
             <>{dashboarPage}</>:<></>}
         {content==="2"? 

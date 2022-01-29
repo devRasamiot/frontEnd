@@ -28,30 +28,33 @@ export default function Dashboard(props){
     //     openState[key] = !openState[key]
     // }
 
-    if(!getUser()) return <Redirect to="/login" exact/>;
-    if(getUser())
-        return(
-            <main className="container-fluid">
-            <Row className="main-container">
-                <Col  lg={1} md={2} className="menu bg-navBg">
-                        <SideBar></SideBar>
-                </Col>
-                
-                <Col className="content"> 
-                {console.log("factories", factories,"len",factories.length,"check",factories.length>=1)}
-                    {factories? 
-                        factories.map( (fact, i) => 
-                            <Row className="container-factory" key={i}>                            
-                                {/* {fact.name} */}
-                                    
-                                <Content factId={fact.id}></Content>
-                                    
-                            </Row>
-                        )
-                        :<></>}
-                </Col>
-            </Row>
-            </main>
-        );
-    }
+
+    return(
+        <main className="container-fluid">
+            <div className="dashboard-card">
+            <div className="sidebar">
+                    <SideBar mode="desktop" />
+                </div>
+                {/* <div className="mobile-navbar">
+                    <SideBar mode="mobile" />
+                    </div> */}
+                <div className="dashboard-content">
+                {factories? 
+                    factories.map( (fact, i) => 
+                        <Row className="container-factory" key={i}>                            
+                                    <span style={{color: '#fff', fontSize: '16px'}}>{fact.name}</span>
+                                        <Content factId={fact.id}></Content>
+                        </Row>
+                    )
+                    :<></>}
+                </div>
+            </div>
+            <div className="mobile-navbar">
+                    <SideBar mode="mobile" />
+                    </div>
+        </main>
+    );
+    
+}
+
 
