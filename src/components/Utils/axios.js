@@ -1,6 +1,6 @@
 import axios from 'axios';
 import getApi from './api.js';
-import logoutFunc, { loginFunc } from './userFunc.js';
+import {logoutFunc, loginFunc } from './userFunc.js';
 import jwt from 'jwt-simple'
 
 const urls = getApi()

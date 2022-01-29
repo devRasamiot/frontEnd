@@ -34,13 +34,14 @@ export default function CeramicLine(props){
 
     
     return(
-        <section className="container-sensors">            
+        <section >            
             {/* {loading? <Spinner animation="border" variant="primary" />: */}
                 <Row className="line">
                 {sublines.map( (line, i) => 
                  <Row className="container-lines align-content-center" key={i}>
                     <Row className="full-width-row">
                         <h5 style={{marginBottom: '.5rem'}}>
+
                         {line.name}
                         </h5>
                     </Row>                            

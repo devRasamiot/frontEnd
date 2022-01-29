@@ -49,6 +49,7 @@ export default function CeramicSubLine(props){
     },[setType]);
 
     return(
+
         <section className="container-sensors"> 
         {sensors.map((sensor, i) =>
             <div className="sensors-box">
@@ -75,6 +76,7 @@ export default function CeramicSubLine(props){
             </div>
             </div>
         )}           
+
         </section>
     );
 

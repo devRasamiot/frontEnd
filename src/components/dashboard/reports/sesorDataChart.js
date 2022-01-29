@@ -7,16 +7,14 @@ import axiosInstance from '../../Utils/axios'
 import { ResponsiveLine } from '@nivo/line';
 
 
-export default function SensorDiffAggrChart(props){
+export default function SensorDataChart(props){
     const id=props.pLine
     const start_time = props.startTime
     const end_time = props.endTime
     // const body=props.body_request
     const body = JSON.stringify({
         "start_time": start_time,
-        "end_time": end_time,
-        "dur_time": 15,
-        "line_id": id
+        "end_time": end_time
     })
     const [sensorData, setSensorData] = useState([]);
     const [productLine, setProductLine] = useState([]);
@@ -31,8 +29,13 @@ export default function SensorDiffAggrChart(props){
     useEffect(()=>{
         
         axiosInstance
-        .post(`reports/sensor/inline/aggrdata/`,
-        body
+        .get(`reports/sensors/logdatas/`,
+        {
+            params:{
+                "start_time": start_time,
+                "end_time": end_time
+            }
+        }
         ).then( (response) => {
             console.log(response.data)
             setSensorData(response.data)
@@ -49,11 +52,10 @@ export default function SensorDiffAggrChart(props){
     return(        
         <Row className="line_chart">
             {sensorData.map((eachdata,i) =>
-            console.log(eachdata)
-            )}
-                <Row style={{height: 500, width: 1000}}>
+                
+                <Col key={i} md={6} style={{height: 500}}>
                     <ResponsiveLine
-                        data={sensorData}
+                        data={eachdata}
                         margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
                         xScale={{ type: 'point' }}
                         yScale={{ type: 'linear', min: -1, max: 'auto', stacked: true, reverse: false }}
@@ -111,8 +113,9 @@ export default function SensorDiffAggrChart(props){
                             }
                         ]}
                     />
-                </Row>             
-            {/* )} */}
+                </Col>             
+                
+            )}
         </Row>
     );
     

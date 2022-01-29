@@ -8,8 +8,8 @@ import axiosInstance from '../Utils/axios'
 
 import CeramicLine from "./CeramicLine";
 import { Redirect, useHistory } from "react-router";
-import SensorsInLineChart from "./reports/sensorsInLineChart"
 import SensorDiffAggrChart from "./reports/sensorDiffAggrChart"
+import SensorDataChart from "./reports/sesorDataChart";
 import DateFnsUtils from "@date-io/date-fns";
 import { DateTimePicker, KeyboardDateTimePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -30,9 +30,17 @@ export default function Content(props){
     const [fromDate, handleFromDateChange] = useState(dt.setHours( dt.getHours() + 2 ));
     const [toDate, handleToDateChange] = useState(dt);
     const [getDate, setGetDate] = useState(false);
+    const [chartElems,setChartElems] = useState(<div>this is chart</div>);
 
     
-    
+    // let handleFromDateChange =(fd)=>{
+    //     setFromDate(fd);
+    //     setGetDate(false);
+    // }
+    // let handleToDateChange =(td)=>{
+    //     setToDate(td);
+    //     setGetDate(false);
+    // }
 
     useEffect(()=>{
         // console.log(fact_id,"fact_id")
@@ -43,7 +51,9 @@ export default function Content(props){
         }
         ).then( (response) => {
             
-            setProductLine(...productLine,response.data)
+            // setProductLine(...productLine, response.data);
+            setProductLine(response.data)
+            console.log(response.data, "type", typeof(response.data),"product line:", productLine)
             setIsLoading(false);
             
         })
@@ -65,8 +75,28 @@ export default function Content(props){
 
     });
 
+    // let chartElems = <div></div>
     let handledateChart = ()=>{
-        setGetDate(true);       
+        setChartElems(<div>
+            
+            {console.log("product line",typeof(productLine))} 
+            this is timed chart 
+            {productLine.map( (line, i) => 
+                <Row className="container-lines align-content-center" key={i}>                            
+                        <Row>
+                            <h6 className="text-black py-3">
+                            {line.name}
+                            </h6>
+                        </Row>   
+                        <Row>
+                            <Col>          
+                                <SensorDataChart pLine={line.id} startTime={fromDate} endTime={toDate}></SensorDataChart>
+                            </Col>
+                        </Row>                            
+                </Row>
+            )}    
+        </div>)
+        
     }
 
     let dashboarPage =
@@ -78,6 +108,7 @@ export default function Content(props){
                         <Row className="container-lines align-content-center" key={i}>                            
                                 <Row className="full-width-row">
                                     <h5>
+
                                     {line.name}
                                     </h5>
                                 </Row>   
@@ -120,22 +151,7 @@ export default function Content(props){
                                     <FontAwesomeIcon icon={faSearch}  className="searchIcon" />   
                                 </button>
                             </div>
-                            {getDate? 
-                                productLine.map( (line, i) => 
-                                    <Row className="container-lines align-content-center" key={i}>                            
-                                            <Row>
-                                                <h6>
-                                                {line.name}
-                                                </h6>
-                                            </Row>   
-                                            <Row>
-                                                <Col>          
-                                                    <SensorDiffAggrChart pLine={line.id} startTime={fromDate} endTime={toDate}></SensorDiffAggrChart>
-                                                </Col>
-                                            </Row>                            
-                                    </Row>
-                                )
-                        :<></>}
+                            {chartElems}
                     </Row>
             </section>
         </Row>

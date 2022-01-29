@@ -1,22 +1,32 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, Redirect, Route} from "react";
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
+// import Collapse from '@bit/react-bootstrap.react-bootstrap.collapse';
+// import Collapse from 'react-bootstrap'
 import Content from "./content";
 import SideBar from "./sideBar";
 import axiosInstance from '../Utils/axios'
+import { getUser } from "../Utils/userFunc";
+import LoginForm from "../login/LoginForm.js";
 
 
 export default function Dashboard(props){
     const [factories, setFactories] = useState([]);
-
-
+    // const [openState, setOpenState] = useState([]);
+    
     useEffect(()=>{
-        axiosInstance
-	    .get(`factory/`,{})
-        .then((response) =>{
-            setFactories(response.data)
-        })
-    },[setFactories])
+        if(getUser()){
+            axiosInstance
+            .get(`factory/`,{})
+            .then((response) =>{
+                setFactories(response.data)
+            })
+        }
+    },[setFactories],getUser())
+
+    // let contentState = (key)=>{
+    //     openState[key] = !openState[key]
+    // }
 
 
     return(
@@ -46,4 +56,5 @@ export default function Dashboard(props){
     );
     
 }
+
 
