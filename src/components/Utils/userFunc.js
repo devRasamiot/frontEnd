@@ -16,7 +16,7 @@ export const loginFunc = (res) =>{
   
 }
 
-export default function logoutFunc (){
+export function logoutFunc (){
   // console.log("Im in log out");
   const ref = localStorage.getItem('refresh_token');
   // console.log(ref)

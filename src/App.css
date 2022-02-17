@@ -223,11 +223,12 @@ main {
 .container-lines h5 {
   color: aliceblue;
 
-
+}
 .container-sensors{
 height: 100%;
 display: flex;
 align-items: center;
+}
 
 .sensor-name{
   display: inline;
