@@ -10,43 +10,44 @@ import { ResponsiveLine } from '@nivo/line';
 export default function SensorDiffAggrChart(props){
     const id=props.pLine
     const start_time = props.startTime
-    const end_time = props.end_time
+    const end_time = props.endTime
     // const body=props.body_request
-    const body = JSON.stringify({
+    const body = {
         "start_time": start_time,
         "end_time": end_time,
-        "dur_time": 15
-    })
+        "dur_time": 15,
+        "line_id" : id
+    }
     const [sensorData, setSensorData] = useState([]);
     const [productLine, setProductLine] = useState([]);
     // const [data, setData] = useState([]);
     const [loading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const [isResponced, setIsResponced] = useState(false);
-    
-    
+
+
 
 
     useEffect(()=>{
-        
+
         axiosInstance
         .post(`reports/sensor/inline/aggrdata/`,
-        JSON.stringify(body)
+        body
         ).then( (response) => {
             console.log(response.data)
             setSensorData(response.data)
             console.log(sensorData)
-            
+
         }).catch((err)=>{
             // console.log(err)
         })
     },[id, setSensorData])
 
-    
+
     // const result = Object.keys(sensorData).map((key) => [Number(key), sensorData[key]])
     // console.log(result)
-    return(        
-        
+    return(
+
         <Row className="line_chart" style={{height: 500, width: 1000}}>
             <ResponsiveLine
                 data={sensorData}
@@ -62,6 +63,7 @@ export default function SensorDiffAggrChart(props){
                     tickPadding: 5,
                     tickRotation: 0,
                     legend: 'time',
+                    tickRotation: -90,
                     legendOffset: 36,
                     legendPosition: 'middle'
                 }}
@@ -107,8 +109,8 @@ export default function SensorDiffAggrChart(props){
                     }
                 ]}
             />
-        </Row>             
-            
+        </Row>
+
     );
-    
+
 }

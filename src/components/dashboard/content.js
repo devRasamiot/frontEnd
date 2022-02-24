@@ -24,15 +24,15 @@ export default function Content(props){
     const [error, setError] = useState(null);
     const [isResponced, setIsResponced] = useState(false);
 
-    
+
 
     var dt = new Date();
     const [fromDate, handleFromDateChange] = useState(dt.setHours( dt.getHours() + 2 ));
     const [toDate, handleToDateChange] = useState(dt);
     const [getDate, setGetDate] = useState(false);
 
-    
-    
+
+
 
     useEffect(()=>{
         console.log(fact_id,"fact_id")
@@ -42,15 +42,15 @@ export default function Content(props){
         .get(`factoryline/factory/${fact_id}/`,{
         }
         ).then( (response) => {
-            
+
             setProductLine(...productLine,response.data)
             setIsLoading(false);
-            
+
         })
-    
-        
+
+
     },[setProductLine,fact_id])
-    
+
     let history = useHistory();
     console.log(history.location);
     const [content, setContent]=useState("1");
@@ -66,7 +66,7 @@ export default function Content(props){
     });
 
     let handledateChart = ()=>{
-        setGetDate(true);       
+        setGetDate(true);
     }
 
     let dashboarPage =
@@ -74,27 +74,27 @@ export default function Content(props){
             <section className="line-section">
                 <Row className="line">
                     {
-                        productLine.map( (line, i) => 
-                        <Row className="container-lines align-content-center" key={i}>                            
+                        productLine.map( (line, i) =>
+                        <Row className="container-lines align-content-center" key={i}>
                                 <Row>
                                     <h6>
                                     {line.name}
                                     </h6>
-                                </Row>   
+                                </Row>
                                 <Row>
                                     <Col>
                                         <CeramicLine pLine={line.id}></CeramicLine>
                                     </Col>
-                                </Row>                            
+                                </Row>
                         </Row>
                         )
                     }
-                </Row> 
-            </section>               
+                </Row>
+            </section>
         </Row>
 
-    let reportPage =             
-        <Row>
+    let reportPage =
+        <Row className="w-100">
             <section className="line-section">
                     <Row className="line">
                             <div className="container-dates">
@@ -117,22 +117,22 @@ export default function Content(props){
                                     </MuiPickersUtilsProvider>
                                 </Fragment>
                                 <button className="date-filter" onClick={handledateChart}>
-                                    <FontAwesomeIcon icon={faSearch}  className="searchIcon" />   
+                                    <FontAwesomeIcon icon={faSearch}  className="searchIcon" />
                                 </button>
                             </div>
-                            {getDate? 
-                                productLine.map( (line, i) => 
-                                    <Row className="container-lines align-content-center" key={i}>                            
+                            {getDate?
+                                productLine.map( (line, i) =>
+                                    <Row className="container-lines align-content-center" key={i}>
                                             <Row>
                                                 <h6>
                                                 {line.name}
                                                 </h6>
-                                            </Row>   
+                                            </Row>
                                             <Row>
-                                                <Col>          
+                                                <Col>
                                                     <SensorDiffAggrChart pLine={line.id} startTime={fromDate} endTime={toDate}></SensorDiffAggrChart>
                                                 </Col>
-                                            </Row>                            
+                                            </Row>
                                     </Row>
                                 )
                         :<></>}
@@ -143,13 +143,12 @@ export default function Content(props){
 
     return(
       <>
-      
+
         {console.log("here is content")}
-        {content==="1"? 
+        {content==="1"?
             <>{dashboarPage}</>:<></>}
-        {content==="2"? 
+        {content==="2"?
             <>{reportPage}</>:<></>}
-      </>  
+      </>
     );
 }
-

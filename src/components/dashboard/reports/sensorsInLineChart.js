@@ -17,7 +17,7 @@ import SnoozeIcon from "@material-ui/icons/Snooze";
 import AlarmIcon from "@material-ui/icons/AddAlarm";
 import { IconButton, InputAdornment, Grid } from "@material-ui/core";
 import { DateTimePicker, KeyboardDateTimePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
-  
+
 // import flatpickr from 'flatpickr'
 // import 'flatpickr/dist/flatpickr.min.css'
 // import 'flatpickr/dist/themes/dark.css'
@@ -37,7 +37,7 @@ export default function SensorsInLineChart(props){
         "end_time": end_time,
         "dur_time": 15
     })
-    
+
 
     // const [clearedDate, handleClearedDateChange] = useState(null);
     // const [fromDate, handleFromDateChange] = useState(new Date("2019-01-01T18:54"));
@@ -45,24 +45,24 @@ export default function SensorsInLineChart(props){
 
 
 
-    
+
     let filterSubmit = (event)=>{
         return(
             <SensorDiffAggrChart
-                line_id={id} 
+                line_id={id}
                 body = {body}
             />
         );
     }
 
-    return(        
-        <section className="container-sensors">   
+    return(
+        <section className="container-sensors">
             <SensorDiffAggrChart
-                line_id={id} 
+                line_id={id}
                 body = {body}
             />
         </section>
-            
+
     );
-    
+
 }
