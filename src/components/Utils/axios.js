@@ -1,6 +1,6 @@
 import axios from 'axios';
 import getApi from './api.js';
-import logoutFunc, { loginFunc } from './userFunc.js';
+import {logoutFunc, loginFunc } from './userFunc.js';
 import jwt from 'jwt-simple'
 
 const urls = getApi()
@@ -25,7 +25,7 @@ axiosInstance.interceptors.response.use(
 	},
 	async function (error) {
 		const originalRequest = error.config;
-		console.log("originalRequest", originalRequest)
+		// console.log("originalRequest", originalRequest)
 		// console.log("Im in axios error section")
 		if (typeof error.response === 'undefined') {
 			alert(
@@ -52,7 +52,7 @@ axiosInstance.interceptors.response.use(
 			// console.log("Im in 401 and I want to refresh token")
 			const refreshToken = localStorage.getItem('refresh_token');
 			// console.log(localStorage.getItem('refresh_token'))
-
+			console.log(`trying to refresh: ${refreshToken}`)
 			if (refreshToken) {
 				axiosInstance
 					.post('user/token/refresh/', 
@@ -62,18 +62,19 @@ axiosInstance.interceptors.response.use(
 					.then((response) => {
 						localStorage.setItem('access_token', response.data.access);
 						localStorage.setItem('loggedIn', true);
-						console.log(localStorage.getItem('refresh_token'))
+						// console.log(localStorage.getItem('refresh_token'))
 
 						axiosInstance.defaults.headers['Authorization'] =
 							'JWT ' + response.data.access;
 						originalRequest.headers['Authorization'] =
 							'JWT ' + response.data.access;
 
-						console.log(originalRequest)
+						console.log(axiosInstance.defaults.headers)
+						console.log(originalRequest.headers)
 						return axiosInstance(originalRequest);
 					})
 					.catch((err)=>{
-						console.log(err)
+						// console.log(err)
 						logoutFunc();
 						window.location.href = '/login/';
 					})	

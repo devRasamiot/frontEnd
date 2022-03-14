@@ -4,8 +4,8 @@ import { BrowserRouter as Router,
 }
 from 'react-router-dom';
 import React from "react";
-import LoginForm from './components/login/LoginForm'
-import Dashboard from './components/dashboard/dashboard';
+import LoginForm from './components/login/LoginForm.js'
+import Dashboard from './components/dashboard/dashboard.js';
 
 import PrivateRoute from './components/Utils/privateRoute';
 import PublicRoute from './components/Utils/publicRoutes';
