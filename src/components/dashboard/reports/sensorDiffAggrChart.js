@@ -12,12 +12,12 @@ export default function SensorDiffAggrChart(props){
     const start_time = props.startTime
     const end_time = props.endTime
     // const body=props.body_request
-    const body = JSON.stringify({
+    const body = {
         "start_time": start_time,
         "end_time": end_time,
         "dur_time": 15,
         "line_id": id
-    })
+    }
     const [sensorData, setSensorData] = useState([]);
     const [productLine, setProductLine] = useState([]);
     // const [data, setData] = useState([]);

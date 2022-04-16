@@ -23,7 +23,6 @@ export default function SensorDataChart(props){
     const [error, setError] = useState(null);
     const [isResponced, setIsResponced] = useState(false);
     console.log(body)
-    
 
 
     useEffect(()=>{
@@ -33,7 +32,8 @@ export default function SensorDataChart(props){
         {
             params:{
                 "start_time": start_time,
-                "end_time": end_time
+                "end_time": end_time,
+                "line_id": id
             }
         }
         ).then( (response) => {
